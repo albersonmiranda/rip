@@ -1,0 +1,8 @@
+[package]
+name = "rip"
+authors = ["Alberson da Silva Miranda <albersonmiranda@hotmail.com>"]
+version = "0.0.1"
+description = "✨✨ Effortlessly installs R packages ✨✨"
+edition = "2021"
+[dependencies]
+clap = { version = "4.1.8", features = ["derive"] }
