@@ -16,25 +16,10 @@
 
 ## Installation
 
-### From source (development)
-```bash
-git clone <repo-url>
-cd rip
-cargo run -- <PACKAGE>...
-```
+Clone or download the repository and then:
 
-### Release build
 ```bash
-cd rip
-cargo build --release
-# then:
-./target/release/rip [OPTIONS] <PACKAGE>...
-```
-
-### Install via Cargo
-```bash
-cd rip
-cargo install --path . --force
+cargo install --path .
 ```
 After installation, the `rip` binary is in your Cargo bin directory (usually `~/.cargo/bin`).
 

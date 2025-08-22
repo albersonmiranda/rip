@@ -7,11 +7,9 @@ use std::process::Command;
 struct Cli {
   packages: Vec<String>,
   
-  /// URL from one of the several CRAN mirrors around the world
   #[arg(short, long, default_value = "https://cloud.r-project.org/")]
   repository: String,
   
-  /// Optional lib path to pass to install.packages
   #[arg(short, long)]
   library: Option<String>,
 }
