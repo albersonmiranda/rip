@@ -16,12 +16,9 @@
 
 ## Installation
 
-Clone or download the repository and then:
-
 ```bash
-cargo install --path .
+cargo install --git https://github.com/albersonmiranda/rip
 ```
-After installation, the `rip` binary is in your Cargo bin directory (usually `~/.cargo/bin`).
 
 ## Usage
 ```text
@@ -54,10 +51,6 @@ Options:
 If installed via Cargo:
 ```bash
 cargo uninstall rip
-```
-Or remove the binary manually:
-```bash
-rm ~/.cargo/bin/rip
 ```
 
 ## Contributing
