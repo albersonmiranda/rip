@@ -9,7 +9,7 @@
 - Optionally select CRAN mirrors by country with fuzzy matching
 - Interactive numbered repository selection when there are multiple country matches
 - Non-interactive auto-selection of the best match when requested
-- Install from explicit git source flags
+- Install from explicit git source flags (Github, Gitlab, Codeberg, Bitbucket)
 - Optionally install to a library path with `-l` / `--library`
 
 ## Prerequisites
