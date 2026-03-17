@@ -135,7 +135,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rip"
+name = "rpkg"
 version = "0.1.0"
 dependencies = [
  "clap",

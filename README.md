@@ -1,6 +1,6 @@
-# rip
+# rpkg
 
-`rip` (R Install Package) is a lightweight CLI wrapper around `Rscript` written in [Rust](https://www.rust-lang.org/) that simplifies installing R packages through terminal commands.
+`rpkg` (R Package) is a lightweight CLI wrapper around `Rscript` written in [Rust](https://www.rust-lang.org/) that simplifies installing R packages through terminal commands.
 
 ## Features
 
@@ -20,46 +20,46 @@
 ## Installation
 
 ```bash
-cargo install --git https://github.com/albersonmiranda/rip
+cargo install rpkg
 ```
 
 ## Usage
 
 ```text
-rip [OPTIONS] <PACKAGE> [<PACKAGE> ...]
+rpkg [OPTIONS] <PACKAGE> [<PACKAGE> ...]
 ```
 
 Examples:
 
 ```bash
 # Install a single package from CRAN
-rip ggplot2
+rpkg ggplot2
 
 # Install multiple CRAN packages at once
-rip ggplot2 lubridate mlr3
+rpkg ggplot2 lubridate mlr3
 
 # Select a CRAN mirror by country (fuzzy matched), then select one between matches
-rip --country brazil dplyr
+rpkg --country brazil dplyr
 
 # Select by country but auto-pick best match without prompting
-rip --country brazil --non-interactive dplyr
+rpkg --country brazil --non-interactive dplyr
 ```
 
 > [!IMPORTANT]
 >  **Mirror resolution precedence**
 >
-> 1. If `--country` is set, `rip` retrieves CRAN mirrors through R and asks for selection when needed.
-> 2. Else `rip` falls back to `https://cloud.r-project.org/`.
+> 1. If `--country` is set, `rpkg` retrieves CRAN mirrors through R and asks for selection when needed.
+> 2. Else `rpkg` falls back to `https://cloud.r-project.org/`.
 
 ```bash
 # Install from GitHub source flag
-rip --github=albersonmiranda/fio
+rpkg --github=albersonmiranda/fio
 
 # Mix multiple explicit git sources in one command (no flag means CRAN)
-rip aCranPack --github=OWNER/REPO --gitlab=OWNER/REPO anotherCranPack -c brazil
+rpkg aCranPack --github=OWNER/REPO --gitlab=OWNER/REPO anotherCranPack -c brazil
 
 # Install into a specific library path
-rip -l /path/to/R/library ggplot2
+rpkg -l /path/to/R/library ggplot2
 ```
 
 > [!IMPORTANT]
@@ -86,7 +86,7 @@ Options:
 ## Uninstall
 If installed via Cargo:
 ```bash
-cargo uninstall rip
+cargo uninstall rpkg
 ```
 
 ## Contributing
