@@ -135,10 +135,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "rip"
-version = "0.0.1"
+name = "rpkg"
+version = "0.1.0"
 dependencies = [
  "clap",
+ "strsim",
 ]
 
 [[package]]

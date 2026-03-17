@@ -1,8 +1,17 @@
 [package]
-name = "rip"
+name = "rpkg"
 authors = ["Alberson da Silva Miranda <albersonmiranda@hotmail.com>"]
-version = "0.0.1"
-description = "✨✨ Effortlessly installs R packages ✨✨"
+version = "0.1.0"
+description = "A lightweight CLI wrapper around Rscript for installing R packages from CRAN or elsewhere"
 edition = "2021"
+license = "MIT"
+repository = "https://github.com/albersonmiranda/rip"
+homepage = "https://github.com/albersonmiranda/rip"
+documentation = "https://docs.rs/rpkg"
+readme = "README.md"
+keywords = ["r", "cli", "rscript", "cran", "installer"]
+categories = ["command-line-utilities", "development-tools"]
+
 [dependencies]
 clap = { version = "4.1.8", features = ["derive"] }
+strsim = "0.11"
