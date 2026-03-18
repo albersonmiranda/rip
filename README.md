@@ -7,6 +7,7 @@
 - Install single or multiple packages in one command
 - Default CRAN mirror set to `https://cloud.r-project.org/`
 - Optionally select CRAN mirrors by country with fuzzy matching
+- Optionally set custom URLs that takes precedence over CRAN url (e.g., R-Universe)
 - Interactive numbered repository selection when there are multiple country matches
 - Non-interactive auto-selection of the best match when requested
 - Install from explicit git source flags (Github, Gitlab, Codeberg, Bitbucket)
@@ -43,6 +44,9 @@ rpkg --country brazil dplyr
 
 # Select by country but auto-pick best match without prompting
 rpkg --country brazil --non-interactive dplyr
+
+# Set custom URL (e.g., R-Universe)
+rpkg fio --url https://albersonmiranda.r-universe.dev -c brazil
 ```
 
 > [!IMPORTANT]
@@ -50,6 +54,7 @@ rpkg --country brazil --non-interactive dplyr
 >
 > 1. If `--country` is set, `rpkg` retrieves CRAN mirrors through R and asks for selection when needed.
 > 2. Else `rpkg` falls back to `https://cloud.r-project.org/`.
+> 3. If one or many `--url <URL>` is set, then they are appended before CRAN's (`repos = c(<URL>, <URL>, ..., <CRAN mirror>)`)
 
 ```bash
 # Install from GitHub source flag
