@@ -17,6 +17,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         gitlab,
         bitbucket,
         codeberg,
+        url,
         ..
     } = args;
 
@@ -29,11 +30,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .collect::<Vec<_>>()
             .join(", ");
 
+        let mut urls: Vec<String> = Vec::new();
+        if let Some(additional_url) = &url {
+            urls.push(format!("\"{}\"", escape_r_string(additional_url)));
+        }
+
+        urls.push(format!("\"{}\"", escape_r_string(&cran_repo)));
+
+        let repos_expr = urls.join(", ");
+
         let mut cran_expr = format!(
-            "install.packages(c({}), repos = \"{}\"",
-            pkg_list,
-            escape_r_string(&cran_repo)
+            "install.packages(c({}), repos = c({})",
+            pkg_list, repos_expr
         );
+
         if let Some(lib) = &library {
             cran_expr.push_str(&format!(", lib = \"{}\"", escape_r_string(lib)));
         }

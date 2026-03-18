@@ -96,4 +96,11 @@ pub struct Cli {
         value_parser = parse_owner_repo
     )]
     pub codeberg: Vec<String>,
+
+    #[arg(
+      long,
+      action = ArgAction::Append,
+      help = "Additional custom repository URL (takes precedence over country selection)"
+    )]
+    pub url: Option<String>,
 }
