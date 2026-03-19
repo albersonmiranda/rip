@@ -18,10 +18,36 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         bitbucket,
         codeberg,
         url,
+        update,
         ..
     } = args;
 
     let mut expr_parts = Vec::new();
+
+    if update {
+        let mut urls: Vec<String> = Vec::new();
+        if let Some(additional_url) = &url {
+            urls.push(format!("\"{}\"", escape_r_string(additional_url)));
+        }
+        urls.push(format!("\"{}\"", escape_r_string(&cran_repo)));
+
+        let repos_expr = urls.join(", ");
+
+        let mut update_expr = format!(
+            "update.packages(ask = FALSE, repos = c({}))",
+            repos_expr
+        );
+
+        if let Some(lib) = &library {
+            update_expr = format!(
+                "update.packages(ask = FALSE, lib.loc = \"{}\", repos = c({}))",
+                escape_r_string(lib),
+                repos_expr
+            );
+        }
+
+        expr_parts.push(update_expr);
+    }
 
     if !packages.is_empty() {
         let pkg_list = packages
