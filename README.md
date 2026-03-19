@@ -40,13 +40,22 @@ rpkg ggplot2
 rpkg ggplot2 lubridate mlr3
 
 # Select a CRAN mirror by country (fuzzy matched), then select one between matches
-rpkg --country brazil dplyr
+rpkg dplyr --country brazil
 
 # Select by country but auto-pick best match without prompting
-rpkg --country brazil --non-interactive dplyr
+rpkg dplyr --country brazil --non-interactive
 
 # Set custom URL (e.g., R-Universe)
 rpkg fio --url https://albersonmiranda.r-universe.dev -c brazil
+
+# Update all installed packages before installing new ones
+rpkg dplyr --update
+
+# Update with specific country mirror
+rpkg dplyr --country brazil --update
+
+# Update using custom library path
+rpkg ggplot2 --library /path/to/R/library --update
 ```
 
 > [!IMPORTANT]
@@ -80,6 +89,8 @@ Options:
 -c, --country <COUNTRY>         Country query used for CRAN mirror fuzzy matching
 --non-interactive               Auto-select best mirror when multiple matches are found
 -l, --library <LIBRARY>         Path to install package library (optional)
+--url <URL>                     Additional custom repository URL (repeatable)
+--update                        Update all installed packages before installing
 --github <OWNER/REPO>           Install from GitHub (repeatable)
 --gitlab <OWNER/REPO>           Install from GitLab (repeatable)
 --bitbucket <OWNER/REPO>        Install from Bitbucket (repeatable)
@@ -90,6 +101,7 @@ Options:
 
 ## Uninstall
 If installed via Cargo:
+
 ```bash
 cargo uninstall rpkg
 ```

@@ -103,4 +103,7 @@ pub struct Cli {
       help = "Additional custom repository URL (takes precedence over country selection)"
     )]
     pub url: Option<String>,
+
+    #[arg(long, help = "Update all installed packages before installing")]
+    pub update: bool,
 }
