@@ -53,7 +53,7 @@ pub fn build_git_url(source: &str, repo: &str) -> String {
 #[command(author = "Alberson da Silva Miranda", version, about)]
 
 pub struct Cli {
-    #[arg(required = true)]
+    #[arg(required = false)]
     pub packages: Vec<String>,
 
     #[arg(short = 'c', long)]

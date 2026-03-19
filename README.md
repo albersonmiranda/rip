@@ -37,25 +37,32 @@ Examples:
 rpkg ggplot2
 
 # Install multiple CRAN packages at once
-rpkg ggplot2 lubridate mlr3
+rpkg ggplot2 fio mlr3
 
 # Select a CRAN mirror by country (fuzzy matched), then select one between matches
-rpkg dplyr --country brazil
+rpkg ggplot2 --country brazil
 
 # Select by country but auto-pick best match without prompting
-rpkg dplyr --country brazil --non-interactive
+rpkg ggplot2 --country brazil --non-interactive
 
 # Set custom URL (e.g., R-Universe)
 rpkg fio --url https://albersonmiranda.r-universe.dev -c brazil
 
+# Install into a specific library path
+rpkg ggplot2 -l /path/to/R/library
+
 # Update all installed packages before installing new ones
-rpkg dplyr --update
+# (this updates all installed packages THEN installs ggplot)
+rpkg ggplot2 --update
 
-# Update with specific country mirror
-rpkg dplyr --country brazil --update
+# Update + install with specific country mirror
+rpkg ggplot2 --country brazil --update
 
-# Update using custom library path
+# Update + install using custom library path
 rpkg ggplot2 --library /path/to/R/library --update
+
+# Only update all installed packages
+rpkg --update
 ```
 
 > [!IMPORTANT]
@@ -70,10 +77,9 @@ rpkg ggplot2 --library /path/to/R/library --update
 rpkg --github=albersonmiranda/fio
 
 # Mix multiple explicit git sources in one command (no flag means CRAN)
-rpkg aCranPack --github=OWNER/REPO --gitlab=OWNER/REPO anotherCranPack -c brazil
-
-# Install into a specific library path
-rpkg -l /path/to/R/library ggplot2
+# Here, ggplot2 and dplyr are installing from CRAN (using a brazilian mirror),
+# while emo is installing from Github and raven from Gitlab
+rpkg ggplot2 dplyr -c brazil --github=hadley/emo --gitlab=r-packages/raven
 ```
 
 > [!IMPORTANT]
